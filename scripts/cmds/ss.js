@@ -4,7 +4,7 @@ module.exports = {
     name: "ss",
     aliases: ["screenshot"],
     version: "1.0",
-    author: "conrado borja jr.",
+    author: "MILAN",
     countDown: 5,
     role: 0,
     shortDescription: "get screenshot of website",

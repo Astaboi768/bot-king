@@ -4,9 +4,9 @@ const fs = require("fs-extra");
 module.exports = {
  config: {
  name: "cdp",
- aliases: ["coupledp"],
+ aliases: [],
  version: "1.0",
- author: "Loid Butter",
+ author: "Rishad",
  countDown: 5,
  role: 0,
  shortDescription: {
@@ -15,7 +15,7 @@ module.exports = {
  longDescription: {
  en: "couple dp"
  },
- category: "image",
+ category: "love",
  guide: {
  en: "{pn}"
  }
@@ -24,7 +24,7 @@ module.exports = {
  onStart: async function ({ api, event, args }) {
  try {
  const { data } = await axios.get(
- "https://tanjiro-api.onrender.com/cdp?api_key=tanjiro"
+ "https://erdwpe-api.herokuapp.com/api/randomgambar/couplepp"
  );
  const maleImg = await axios.get(data.male, { responseType: "arraybuffer" });
  fs.writeFileSync(__dirname + "/tmp/img1.png", Buffer.from(maleImg.data, "utf-8"));
@@ -36,7 +36,7 @@ module.exports = {
  fs.createReadStream(__dirname + "/tmp/img1.png"),
  fs.createReadStream(__dirname + "/tmp/img2.png")
  ];
- 
+
  return api.sendMessage({
  body: msg,
  attachment: allImages

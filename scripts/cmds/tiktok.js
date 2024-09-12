@@ -13,7 +13,7 @@ module.exports = {
     longDescription: {
       en: "Search for TikTok videos based on keywords."
     },
-    category: "media",
+    category: "info",
     guide: {
       en: "{pn} <search text>"
     }
@@ -52,12 +52,11 @@ module.exports = {
         videoResponse.data.pipe(writer);
 
         writer.on('finish', async () => {
-          // Reply with the video as an attachment
+          
           await api.sendMessage({
             body: message,
             attachment: fs.createReadStream(filePath)
-          }, event.threadID, event.messageID); // Send as a reply to the triggering message
-
+          }, event.threadID, event.messageID);
           fs.unlinkSync(filePath);
 
           if (searchMessageID) {

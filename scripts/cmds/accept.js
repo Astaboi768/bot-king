@@ -10,7 +10,7 @@ module.exports = {
     role: 2,
     shortDescription: "accept users",
     longDescription: "accept users",
-    category: "owner",
+    category: "Utility",
   },
 
   onReply: async function ({ message, Reply, event, api, commandName }) {
@@ -115,7 +115,7 @@ module.exports = {
       msg += (`\n${i}. Name: ${user.node.name}`
         + `\nID: ${user.node.id}`
         + `\nUrl: ${user.node.url.replace("www.facebook", "fb")}`
-        + `\nTime: ${moment().tz("Asia/Manila").format("DD/MM/YYYY HH:mm:ss")}\n`);
+        + `\nTime: ${moment(user.time * 1009).tz("Asia/Manila").format("DD/MM/YYYY HH:mm:ss")}\n`);
     }
     api.sendMessage(`${msg}\nReply to this message with content: <add | del> <comparison | or "all"> to take action`, event.threadID, (e, info) => {
       global.GoatBot.onReply.set(info.messageID, {
@@ -125,8 +125,8 @@ module.exports = {
         author: event.senderID,
         unsendTimeout: setTimeout(() => {
           api.unsendMessage(info.messageID); // Unsend the message after the countdown duration
-        }, this.config.countDown * 30000) // Convert countdown duration to milliseconds
+        }, this.config.countDown * 20000) // Convert countdown duration to milliseconds
       });
     }, event.messageID);
   }
-};
+}

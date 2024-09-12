@@ -9,16 +9,16 @@ module.exports = {
     author: "arfan",
     countDown: 60,
    longDescription: {
-			vi: "tạo avatar anime",
-			en: "Reply to a video"
+      vi: "tạo avatar anime",
+      en: "Reply to a video"
      },
     //shortDescription: "Create FB Banner",
-    
-    category: "VIDEO",
+
+    category: "image",
     guide: {
       en: "{p}{n}"
     }
-  
+
   },
   onStart: async function ({ api, event, args, message }) {
     try {
